@@ -1,0 +1,18 @@
+mailto::
+{
+   "to":[
+      "jcr@di.uminho.pt"
+   ],
+   "cc":[
+      
+   ],
+   "bcc":[
+      
+   ],
+   "subject":"PL2023::A93294::TPC",
+   "body":"A93294;Pedro Miguel Rodrigues Gomes;https://github.com/MayorX500/PL2023",
+   "attachment":[
+      
+   ]
+}
+
