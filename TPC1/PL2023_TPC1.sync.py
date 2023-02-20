@@ -100,8 +100,7 @@ def dist_by_age() -> dict:
 def get_colesteroles() -> list[tuple[int,int]]:
     intervals:list[int] = list(range(0, 700, 10))
     colesterol:list[tuple[int,int]] = []
-    for i,j in zip(intervals, intervals[1:]):
-        colesterol.append((i,j-1))
+    colesterol = [(i,j-1) for i,j in zip(intervals, intervals[1:])]
     return colesterol
 
 
@@ -189,7 +188,7 @@ def main():
     plot_bar(dist_gender,title="Distribution by gender")
     plot_bar(dist_age,pop=True,title="Distribution by age group")
     plot_bar(dist_colesterol,pop=True,title="Distribution by colesterol level")
-
+    plot_bar({"Primeira Coluna":{"Linha 1":1,"Linha 2":2,"Linha 3":3},"Segunda Coluna":{"Linha 1":4,"Linha 2":5,"Linha 3":6}}, title="Teste")
 
 
 if __name__ == '__main__':
