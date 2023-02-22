@@ -57,11 +57,17 @@ def main():
                     calculator.add_state(int(word))
                 elif re.search(regex["Result"], word, re.IGNORECASE):
                     print(f"Current State -> {calculator.get_state()}")
-    # If an exception is caught, just ignore it and show the final state of the calculator
-    except Exception:
-        pass
-    
-    print("Closing calculator")
+    # If an exception is caught check if is KeyboardInterrupt or EOFError and close the program
+    except Exception as e:
+        match e:
+            case KeyboardInterrupt():
+                print("Terminated by user")
+            case EOFError():
+                print("Shuting down, EOF Found")
+            case _:
+                print("Error: ", e)
+        shutdown = True
+
     print(f"Final state: {calculator.get_state()}")
 
 if __name__ == "__main__":
