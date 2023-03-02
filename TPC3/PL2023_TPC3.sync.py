@@ -12,25 +12,29 @@ def create_process(line:str,regular_expression:re.Pattern) -> dict:
     return match.groupdict() if (match := regular_expression.match(line)) else None
 
 def create_process_list(data:str,regular_expression:re.Pattern) -> list:
-    return [create_process(line.strip(),regular_expression) for line in data.splitlines() if create_process(line.strip(),regular_expression) != None ]
+    return [create_process(line.strip(),regular_expression) for line in data.splitlines()]
+
 
 def clean_processes(process_list:list) -> list:
-    processes:dict = {}
+    listing:list = []
     for process in process_list:
-        if process['pid'] not in processes.keys():
-            processes[process['pid']] = process
-        else:
-            for key,value in process.items():
-                if value != '':
-                    processes[process['pid']][key] = value
-    return list(sorted(processes.values(),key=lambda x: int(x['pid'])))
+        if process is None:
+            continue
+        if process['name'] == '':
+            continue
+        if process['year'] == '':
+            continue
+        listing.append(process)
+    return listing
+
+
 
 def secular_match(processes:list[dict]) -> dict:
     sec:dict = {}
     for process in processes:
         key:str = str(ceil(int(process['year'])/100))
         name:str = process['name']
-        person:dict = re.match(r'^(?P<name>[a-zA-Z]*).* (?P<last_name>[a-zA-Z]*)$',name).groupdict()
+        person:dict = {'name':name.split(' ')[0],'last_name':name.split(' ')[-1]}
         if key not in sec.keys(): 
             sec[key] = {'last_name':{person['last_name']:1},'name':{person['name']:1}}
         else:
