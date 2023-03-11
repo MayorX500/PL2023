@@ -1,0 +1,32 @@
+[
+    {
+        "Número": "3162",
+        "Nome": "Cândido Faísca",
+        "Curso": "Teatro",
+        "Notas_media": 13.0,
+        "Notas_std": 0.816496580927726,
+        "Notas_sum": 39,
+        "Notas_min": 12,
+        "Notas_max": 14
+    },
+    {
+        "Número": "7777",
+        "Nome": "Cristiano Ronaldo",
+        "Curso": "Desporto",
+        "Notas_media": 14.4,
+        "Notas_std": 3.4985711369071804,
+        "Notas_sum": 72,
+        "Notas_min": 11,
+        "Notas_max": 20
+    },
+    {
+        "Número": "264",
+        "Nome": "Marcelo Sousa",
+        "Curso": "Ciência Política",
+        "Notas_media": 19.0,
+        "Notas_std": 0.7071067811865476,
+        "Notas_sum": 76,
+        "Notas_min": 18,
+        "Notas_max": 20
+    }
+]
